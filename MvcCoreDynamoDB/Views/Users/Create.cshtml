@@ -1,0 +1,53 @@
+﻿@model MvcCoreDynamoDB.Models.User
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h1>Create</h1>
+
+<h4>User</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create" enctype="multipart/form-data">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="idUsers" class="control-label"></label>
+                <input asp-for="idUsers" class="form-control" />
+                <span asp-validation-for="idUsers" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="name" class="control-label"></label>
+                <input asp-for="name" class="form-control" />
+                <span asp-validation-for="name" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Fape" class="control-label"></label>
+                <input asp-for="Fape" class="form-control" />
+                <span asp-validation-for="Fape" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Sape" class="control-label"></label>
+                <input asp-for="Sape" class="form-control" />
+                <span asp-validation-for="Sape" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="checkbox" name="foto" value="yes" class="form-control" />
+                <label>Seleccione un fichero: </label>
+                <input type="file" name="file" class="form-control-file" />
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

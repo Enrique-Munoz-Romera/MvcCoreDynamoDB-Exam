@@ -1,0 +1,35 @@
+﻿@model List<String>
+@{
+    ViewData["Title"] = "ListFilesAWS";
+}
+
+<h1>ListFilesAWS</h1>
+
+<a asp-action="Index" asp-controller="S3">
+    Volver a Index
+</a>
+
+@if (Model != null)
+{
+    <ul class="list-group">
+        @foreach (String file in Model)
+        {
+            <li class="list-group-item">
+                <a asp-action="FileAWS" asp-controller="S3"
+                   class="btn btn-info" asp-route-fileName="@file">
+                    View File @file
+                </a>
+            </li>
+            <li class="list-group-item">
+                <a asp-action="DeleteFileAWS" asp-controller="S3"
+                   class="btn btn-danger" asp-route-fileName="@file">
+                    Delete File @file
+                </a>
+            </li>
+        }
+    </ul>
+}
+else
+{
+    <h1 style="color:red">No hay ficheros en el Bucket</h1>
+}
